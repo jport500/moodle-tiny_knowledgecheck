@@ -2,6 +2,41 @@
 
 ## Unreleased
 
+### Phase 6b-docs (Documentation pass)
+
+No code changes. Pure documentation work:
+
+- `docs/DECISIONS.md` — four ADR-lite records covering
+  picker-specific architectural decisions (course-scoped
+  picker, pre-baked init data, plain-text token insertion,
+  null privacy provider).
+- `docs/MANUAL_SMOKE.md` — operator smoke checklist for
+  toolbar button visibility, picker listing, token insertion,
+  empty-course state, and course-scoping.
+- `README.md` rewritten to standard Moodle plugin shape.
+
+### v1.0 (planned, lands at end of Phase 6b-polish)
+
+Final release. Capability summary:
+
+**Shipped:**
+- Toolbar button and Insert-menu item that open a picker
+  modal listing the current course's Knowledge Checks.
+- Pre-baked picker data at editor init via
+  `plugininfo::get_plugin_configuration_for_context()` — no
+  AJAX per modal open.
+- Plain-text token insertion at cursor: `{knowledgecheck id=<uuid>}`.
+- Empty-state placeholder when the course has no Knowledge
+  Checks.
+- Null privacy provider (no PII stored).
+
+**Out of scope for v1.0; v1.x candidates:**
+- Cross-course KC reuse from the picker.
+- AJAX-on-open for very large KC lists.
+- Editor-side rendering of inserted tokens as placeholders
+  (so authors see the embed during editing instead of the
+  literal token).
+
 ### v0.1.1 — Phase 6a (Privacy null provider)
 - `classes/privacy/provider.php` implementing
   `\core_privacy\local\metadata\null_provider`. The TinyMCE picker

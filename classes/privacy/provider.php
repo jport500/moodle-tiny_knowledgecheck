@@ -14,21 +14,27 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+namespace tiny_knowledgecheck\privacy;
+
 /**
- * Version information for tiny_knowledgecheck.
+ * Privacy null provider for tiny_knowledgecheck.
+ *
+ * The TinyMCE picker plugin is purely authoring convenience — it
+ * inserts a filter token into the editor at the cursor position. No
+ * personal data is read or stored by this plugin; any user-specific
+ * data (attempts, responses) lives in mod_knowledgecheck.
  *
  * @package    tiny_knowledgecheck
  * @copyright  2026 LMS Light
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-defined('MOODLE_INTERNAL') || die();
-
-$plugin->version      = 2026051301;
-$plugin->requires     = 2024100100;
-$plugin->component    = 'tiny_knowledgecheck';
-$plugin->maturity     = MATURITY_ALPHA;
-$plugin->release      = 'v0.1.1';
-$plugin->dependencies = [
-    'mod_knowledgecheck' => 2026051305,
-];
+class provider implements \core_privacy\local\metadata\null_provider {
+    /**
+     * Reason this plugin stores no user data.
+     *
+     * @return string Lang-string identifier within this component.
+     */
+    public static function get_reason(): string {
+        return 'privacy:metadata';
+    }
+}

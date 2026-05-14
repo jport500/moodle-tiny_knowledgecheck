@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+### v0.1.1 — Phase 6a (Privacy null provider)
+- `classes/privacy/provider.php` implementing
+  `\core_privacy\local\metadata\null_provider`. The TinyMCE picker
+  is purely an authoring affordance; the only thing it inserts is
+  a filter token, and it stores no personal data of its own.
+- Bumped `mod_knowledgecheck` dependency to the v0.6.0 release.
+
 ### v0.1.0 — Phase 4 (Initial TinyMCE picker)
 - TinyMCE 7 plugin: toolbar button + Insert-menu item that open a Knowledge Check picker modal
 - Modal lists the current course's knowledge checks (pre-baked at editor init via `get_plugin_configuration_for_context()`; no AJAX)

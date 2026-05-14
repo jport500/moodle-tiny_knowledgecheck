@@ -1,0 +1,60 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template tiny_knowledgecheck/picker
+
+    Body of the Knowledge Check picker modal. Listed knowledge checks
+    are clickable rows; a click anywhere within a row triggers insertion
+    of the corresponding embed token at the editor cursor.
+
+    Context variables:
+    * hasknowledgechecks (bool)
+    * kcs (array of {uuid, name, hasquestions})
+    * pickerintro (string)
+    * emptystate (string)
+    * noquestionswarning (string)
+
+    Example context (json):
+    {
+        "hasknowledgechecks": true,
+        "kcs": [
+            {"uuid": "abc-123", "name": "Section 1 check", "hasquestions": true},
+            {"uuid": "def-456", "name": "Section 2 check", "hasquestions": false}
+        ],
+        "pickerintro": "Choose a knowledge check.",
+        "emptystate": "No knowledge checks in this course yet.",
+        "noquestionswarning": "No questions yet"
+    }
+}}
+<div class="tiny-knowledgecheck-picker">
+    {{#hasknowledgechecks}}
+        <p>{{pickerintro}}</p>
+        <ul class="list-group">
+            {{#kcs}}
+                <li class="list-group-item list-group-item-action" data-kc-uuid="{{uuid}}" role="button" tabindex="0">
+                    <strong>{{name}}</strong>
+                    {{^hasquestions}}
+                        <span class="badge bg-warning text-dark ms-2">{{noquestionswarning}}</span>
+                    {{/hasquestions}}
+                </li>
+            {{/kcs}}
+        </ul>
+    {{/hasknowledgechecks}}
+    {{^hasknowledgechecks}}
+        <p class="text-muted">{{emptystate}}</p>
+    {{/hasknowledgechecks}}
+</div>

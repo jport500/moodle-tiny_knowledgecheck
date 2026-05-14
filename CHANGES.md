@@ -1,5 +1,17 @@
 # Changes
 
+## Unreleased
+
+### Dependency bump for mod_knowledgecheck v1.0.1
+
+No picker behaviour change. `mod_knowledgecheck` dependency
+bumped from `2026051402` (v1.0.0) to `2026051403` (v1.0.1) so
+sites installing the suite cleanly satisfy version-ordering on
+plugin install / upgrade. Tiny version itself stays at v1.0.0
+since no code changed.
+
+---
+
 ## v1.0.0 — Knowledge Check TinyMCE picker (tiny_knowledgecheck)
 
 First stable release. Companion authoring plugin to

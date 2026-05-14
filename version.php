@@ -30,5 +30,5 @@ $plugin->component    = 'tiny_knowledgecheck';
 $plugin->maturity     = MATURITY_STABLE;
 $plugin->release      = 'v1.0.0';
 $plugin->dependencies = [
-    'mod_knowledgecheck' => 2026051402,
+    'mod_knowledgecheck' => 2026051403,
 ];

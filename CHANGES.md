@@ -1,6 +1,47 @@
 # Changes
 
-## Unreleased
+## v1.0.0 — Knowledge Check TinyMCE picker (tiny_knowledgecheck)
+
+First stable release. Companion authoring plugin to
+`mod_knowledgecheck`: adds a Knowledge Check picker to the
+TinyMCE toolbar and Insert menu, inserting the embed token at
+the cursor.
+
+### Capabilities
+
+- Toolbar button + Insert-menu item, both opening a picker
+  modal that lists the current course's Knowledge Checks.
+- Picker rows display the activity name and a "No questions
+  yet" badge when applicable.
+- Plain-text token insertion at cursor (`{knowledgecheck id=<uuid>}`).
+- Pre-baked picker data at editor init via
+  `plugininfo::get_plugin_configuration_for_context()` — no
+  AJAX per modal open.
+- Course-scoped: each editor only lists activities from the
+  course it's rendering in.
+- Empty-state placeholder when the course has no Knowledge
+  Checks yet.
+- Null privacy provider.
+
+### Test surface
+
+4 PHPUnit tests / 12 assertions. phpcs clean.
+
+### Documentation
+
+- `README.md` — install and usage overview.
+- `docs/MANUAL_SMOKE.md` — picker-specific operator checklist.
+- `docs/DECISIONS.md` — four ADR-lite records.
+
+### Out of scope for v1.0; v1.x candidates
+
+- Cross-course KC reuse from the picker.
+- AJAX-on-open for very large KC lists.
+- Editor-side rendering of inserted tokens as placeholders.
+
+---
+
+## Pre-1.0 release history
 
 ### Phase 6b-polish-A (AMD build refresh)
 

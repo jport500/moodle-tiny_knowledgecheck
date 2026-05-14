@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+### Phase 6b-polish-A (AMD build refresh)
+
+- `amd/build/*.min.js` (+ sourcemaps) are now proper babel-
+  transpiled UMD output produced via Moodle's standard
+  `grunt amd` pipeline. Source files (`amd/src/*.js`)
+  unchanged. No version bump; this is a binary-only change.
+
 ### Phase 6b-docs (Documentation pass)
 
 No code changes. Pure documentation work:

@@ -24,11 +24,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version      = 2026051402;
+$plugin->version      = 2026051800;
 $plugin->requires     = 2024100100;
 $plugin->component    = 'tiny_knowledgecheck';
 $plugin->maturity     = MATURITY_STABLE;
 $plugin->release      = 'v1.0.0';
 $plugin->dependencies = [
-    'mod_knowledgecheck' => 2026051403,
+    'mod_knowledgecheck' => 2026051800,
 ];
